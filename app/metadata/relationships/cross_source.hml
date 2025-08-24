@@ -1,0 +1,71 @@
+---
+kind: Relationship
+version: v1
+definition:
+  name: case_originator_to_customer
+  description: "Mongo AmlCases.originatorId -> Postgres PublicCustomers.customerId"
+  sourceType: AmlCases
+  target:
+    model:
+      subgraph: app
+      name: PublicCustomers
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath: [ { fieldName: originatorId } ]
+      target:
+        modelField: [ { fieldName: customerId } ]
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: case_beneficiary_to_customer
+  description: "Mongo AmlCases.beneficiaryId -> Postgres PublicCustomers.customerId"
+  sourceType: AmlCases
+  target:
+    model:
+      subgraph: app
+      name: PublicCustomers
+      relationshipType: Object
+  mapping:
+    - source:
+        fieldPath: [ { fieldName: beneficiaryId } ]
+      target:
+        modelField: [ { fieldName: customerId } ]
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customer_sender_transfers
+  description: "Postgres PublicCustomers.account -> many PublicFinancialTransfers.senderAccount"
+  sourceType: PublicCustomers
+  target:
+    model:
+      subgraph: app
+      name: PublicFinancialTransfers
+      relationshipType: Array
+  mapping:
+    - source:
+        fieldPath: [ { fieldName: account } ]
+      target:
+        modelField: [ { fieldName: senderAccount } ]
+
+---
+kind: Relationship
+version: v1
+definition:
+  name: customer_receiver_transfers
+  description: "Postgres PublicCustomers.account -> many PublicFinancialTransfers.receiverAccount"
+  sourceType: PublicCustomers
+  target:
+    model:
+      subgraph: app
+      name: PublicFinancialTransfers
+      relationshipType: Array
+  mapping:
+    - source:
+        fieldPath: [ { fieldName: account } ]
+      target:
+        modelField: [ { fieldName: receiverAccount } ]

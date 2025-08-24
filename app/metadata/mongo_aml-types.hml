@@ -1,0 +1,401 @@
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: ObjectIdBoolExp
+  operand:
+    scalar:
+      type: String_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: String_1!
+        - name: _in
+          argumentType: "[String_1!]!"
+        - name: _neq
+          argumentType: String_1!
+        - name: _nin
+          argumentType: "[String_1!]!"
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: ObjectId
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: ObjectIdBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_aml
+  dataConnectorScalarType: ObjectId
+  representation: String_1
+  graphql:
+    comparisonExpressionTypeName: String1ComparisonExp_2
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_aml
+  dataConnectorScalarType: Int
+  representation: Int
+  graphql:
+    comparisonExpressionTypeName: IntComparisonExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_aml
+  dataConnectorScalarType: String
+  representation: String
+  graphql:
+    comparisonExpressionTypeName: StringComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: IntBoolExp
+  operand:
+    scalar:
+      type: Int
+      comparisonOperators:
+        - name: _eq
+          argumentType: Int!
+        - name: _gt
+          argumentType: Int!
+        - name: _gte
+          argumentType: Int!
+        - name: _in
+          argumentType: "[Int!]!"
+        - name: _lt
+          argumentType: Int!
+        - name: _lte
+          argumentType: Int!
+        - name: _neq
+          argumentType: Int!
+        - name: _nin
+          argumentType: "[Int!]!"
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: Int
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: IntBoolExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: StringBoolExp
+  operand:
+    scalar:
+      type: String
+      comparisonOperators:
+        - name: _eq
+          argumentType: String!
+        - name: _gt
+          argumentType: String!
+        - name: _gte
+          argumentType: String!
+        - name: _in
+          argumentType: "[String!]!"
+        - name: _iregex
+          argumentType: String!
+        - name: _lt
+          argumentType: String!
+        - name: _lte
+          argumentType: String!
+        - name: _neq
+          argumentType: String!
+        - name: _nin
+          argumentType: "[String!]!"
+        - name: _regex
+          argumentType: String!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: String
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: StringBoolExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: ObjectIdAggExp
+  operand:
+    scalar:
+      aggregatedType: String_1
+      aggregationFunctions:
+        - name: count
+          returnType: Int!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: ObjectId
+          functionMapping:
+            count:
+              name: count
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: ObjectIdAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: IntAggExp
+  operand:
+    scalar:
+      aggregatedType: Int
+      aggregationFunctions:
+        - name: avg
+          returnType: Int
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: Int
+        - name: min
+          returnType: Int
+        - name: sum
+          returnType: Int
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: Int
+          functionMapping:
+            avg:
+              name: avg
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+            sum:
+              name: sum
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: IntAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: StringAggExp
+  operand:
+    scalar:
+      aggregatedType: String
+      aggregationFunctions:
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: String
+        - name: min
+          returnType: String
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: String
+          functionMapping:
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: StringAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: IntOrderByExp
+  operand:
+    scalar:
+      orderedType: Int
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: IntOrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: StringOrderByExp
+  operand:
+    scalar:
+      orderedType: String
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: StringOrderByExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BoolBoolExp
+  operand:
+    scalar:
+      type: Boolean_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: Boolean_1!
+        - name: _in
+          argumentType: "[Boolean_1!]!"
+        - name: _neq
+          argumentType: Boolean_1!
+        - name: _nin
+          argumentType: "[Boolean_1!]!"
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: Bool
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BoolBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_aml
+  dataConnectorScalarType: Bool
+  representation: Boolean_1
+  graphql:
+    comparisonExpressionTypeName: Boolean1ComparisonExp_1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Float64
+  graphql:
+    typeName: Float64
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DoubleBoolExp
+  operand:
+    scalar:
+      type: Float64
+      comparisonOperators:
+        - name: _eq
+          argumentType: Float64!
+        - name: _gt
+          argumentType: Float64!
+        - name: _gte
+          argumentType: Float64!
+        - name: _in
+          argumentType: "[Float64!]!"
+        - name: _lt
+          argumentType: Float64!
+        - name: _lte
+          argumentType: Float64!
+        - name: _neq
+          argumentType: Float64!
+        - name: _nin
+          argumentType: "[Float64!]!"
+      dataConnectorOperatorMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: Double
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DoubleBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: mongo_aml
+  dataConnectorScalarType: Double
+  representation: Float64
+  graphql:
+    comparisonExpressionTypeName: Float64ComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DoubleAggExp
+  operand:
+    scalar:
+      aggregatedType: Float64
+      aggregationFunctions:
+        - name: avg
+          returnType: Float64
+        - name: count
+          returnType: Int!
+        - name: max
+          returnType: Float64
+        - name: min
+          returnType: Float64
+        - name: sum
+          returnType: Float64
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: mongo_aml
+          dataConnectorScalarType: Double
+          functionMapping:
+            avg:
+              name: avg
+            count:
+              name: count
+            max:
+              name: max
+            min:
+              name: min
+            sum:
+              name: sum
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: DoubleAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: Float64OrderByExp
+  operand:
+    scalar:
+      orderedType: Float64
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: Float64OrderByExp
+

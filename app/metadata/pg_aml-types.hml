@@ -1,0 +1,754 @@
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Int32
+  graphql:
+    typeName: Int32
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: IntegerBoolExp
+  operand:
+    scalar:
+      type: Int32
+      comparisonOperators:
+        - name: _eq
+          argumentType: Int32!
+        - name: _gt
+          argumentType: Int32!
+        - name: _gte
+          argumentType: Int32!
+        - name: _in
+          argumentType: "[Int32!]!"
+        - name: _lt
+          argumentType: Int32!
+        - name: _lte
+          argumentType: Int32!
+        - name: _neq
+          argumentType: Int32!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: integer
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: IntegerBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: integer
+  representation: Int32
+  graphql:
+    comparisonExpressionTypeName: Int32ComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: String_1
+  graphql:
+    typeName: String1
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TextBoolExp
+  operand:
+    scalar:
+      type: String_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: String_1!
+        - name: _gt
+          argumentType: String_1!
+        - name: _gte
+          argumentType: String_1!
+        - name: _ilike
+          argumentType: String_1!
+        - name: _in
+          argumentType: "[String_1!]!"
+        - name: _iregex
+          argumentType: String_1!
+        - name: _like
+          argumentType: String_1!
+        - name: _lt
+          argumentType: String_1!
+        - name: _lte
+          argumentType: String_1!
+        - name: _neq
+          argumentType: String_1!
+        - name: _nilike
+          argumentType: String_1!
+        - name: _niregex
+          argumentType: String_1!
+        - name: _nlike
+          argumentType: String_1!
+        - name: _nregex
+          argumentType: String_1!
+        - name: _regex
+          argumentType: String_1!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: text
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TextBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: text
+  representation: String_1
+  graphql:
+    comparisonExpressionTypeName: String1ComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Boolean_1
+  graphql:
+    typeName: Boolean1
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BooleanBoolExp
+  operand:
+    scalar:
+      type: Boolean_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: Boolean_1!
+        - name: _in
+          argumentType: "[Boolean_1!]!"
+        - name: _neq
+          argumentType: Boolean_1!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: boolean
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BooleanBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: boolean
+  representation: Boolean_1
+  graphql:
+    comparisonExpressionTypeName: Boolean1ComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Date
+  graphql:
+    typeName: Date
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DateBoolExp
+  operand:
+    scalar:
+      type: Date
+      comparisonOperators:
+        - name: _eq
+          argumentType: Date!
+        - name: _gt
+          argumentType: Date!
+        - name: _gte
+          argumentType: Date!
+        - name: _in
+          argumentType: "[Date!]!"
+        - name: _lt
+          argumentType: Date!
+        - name: _lte
+          argumentType: Date!
+        - name: _neq
+          argumentType: Date!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: date
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DateBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: date
+  representation: Date
+  graphql:
+    comparisonExpressionTypeName: DateComparisonExp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: CharacterVaryingBoolExp
+  operand:
+    scalar:
+      type: String_1
+      comparisonOperators:
+        - name: _eq
+          argumentType: String_1!
+        - name: _gt
+          argumentType: String_1!
+        - name: _gte
+          argumentType: String_1!
+        - name: _ilike
+          argumentType: String_1!
+        - name: _in
+          argumentType: "[String_1!]!"
+        - name: _iregex
+          argumentType: String_1!
+        - name: _like
+          argumentType: String_1!
+        - name: _lt
+          argumentType: String_1!
+        - name: _lte
+          argumentType: String_1!
+        - name: _neq
+          argumentType: String_1!
+        - name: _nilike
+          argumentType: String_1!
+        - name: _niregex
+          argumentType: String_1!
+        - name: _nlike
+          argumentType: String_1!
+        - name: _nregex
+          argumentType: String_1!
+        - name: _regex
+          argumentType: String_1!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: character_varying
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: CharacterVaryingBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: character_varying
+  representation: String_1
+  graphql:
+    comparisonExpressionTypeName: String1ComparisonExp_1
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Bigdecimal
+  graphql:
+    typeName: Bigdecimal
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: DecimalBoolExp
+  operand:
+    scalar:
+      type: Bigdecimal
+      comparisonOperators:
+        - name: _eq
+          argumentType: Bigdecimal!
+        - name: _gt
+          argumentType: Bigdecimal!
+        - name: _gte
+          argumentType: Bigdecimal!
+        - name: _in
+          argumentType: "[Bigdecimal!]!"
+        - name: _lt
+          argumentType: Bigdecimal!
+        - name: _lte
+          argumentType: Bigdecimal!
+        - name: _neq
+          argumentType: Bigdecimal!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: decimal
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: DecimalBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: decimal
+  representation: Bigdecimal
+  graphql:
+    comparisonExpressionTypeName: BigdecimalComparisonExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Biginteger
+  graphql:
+    typeName: Biginteger
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: BigintBoolExp
+  operand:
+    scalar:
+      type: Biginteger
+      comparisonOperators:
+        - name: _eq
+          argumentType: Biginteger!
+        - name: _gt
+          argumentType: Biginteger!
+        - name: _gte
+          argumentType: Biginteger!
+        - name: _in
+          argumentType: "[Biginteger!]!"
+        - name: _lt
+          argumentType: Biginteger!
+        - name: _lte
+          argumentType: Biginteger!
+        - name: _neq
+          argumentType: Biginteger!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: bigint
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: BigintBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: bigint
+  representation: Biginteger
+  graphql:
+    comparisonExpressionTypeName: BigintegerComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: IntegerAggExp
+  operand:
+    scalar:
+      aggregatedType: Int32
+      aggregationFunctions:
+        - name: avg
+          returnType: Bigdecimal
+        - name: max
+          returnType: Int32
+        - name: min
+          returnType: Int32
+        - name: stddev_pop
+          returnType: Int32!
+        - name: stddev_samp
+          returnType: Int32!
+        - name: sum
+          returnType: Biginteger
+        - name: var_pop
+          returnType: Int32!
+        - name: var_samp
+          returnType: Int32!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: integer
+          functionMapping:
+            avg:
+              name: avg
+            max:
+              name: max
+            min:
+              name: min
+            stddev_pop:
+              name: stddev_pop
+            stddev_samp:
+              name: stddev_samp
+            sum:
+              name: sum
+            var_pop:
+              name: var_pop
+            var_samp:
+              name: var_samp
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: IntegerAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TextAggExp
+  operand:
+    scalar:
+      aggregatedType: String_1
+      aggregationFunctions:
+        - name: max
+          returnType: String_1
+        - name: min
+          returnType: String_1
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: text
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: TextAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: BooleanAggExp
+  operand:
+    scalar:
+      aggregatedType: Boolean_1
+      aggregationFunctions:
+        - name: max
+          returnType: Boolean_1
+        - name: min
+          returnType: Boolean_1
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: boolean
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: BooleanAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DateAggExp
+  operand:
+    scalar:
+      aggregatedType: Date
+      aggregationFunctions:
+        - name: max
+          returnType: Date
+        - name: min
+          returnType: Date
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: date
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: DateAggExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: CharacterVaryingAggExp
+  operand:
+    scalar:
+      aggregatedType: String_1
+      aggregationFunctions:
+        - name: max
+          returnType: String_1
+        - name: min
+          returnType: String_1
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: character_varying
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: CharacterVaryingAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: Int32OrderByExp
+  operand:
+    scalar:
+      orderedType: Int32
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: Int32OrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: String1OrderByExp
+  operand:
+    scalar:
+      orderedType: String_1
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: String1OrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: Boolean1OrderByExp
+  operand:
+    scalar:
+      orderedType: Boolean_1
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: Boolean1OrderByExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: DateOrderByExp
+  operand:
+    scalar:
+      orderedType: Date
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: DateOrderByExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: DecimalAggExp
+  operand:
+    scalar:
+      aggregatedType: Bigdecimal
+      aggregationFunctions:
+        - name: avg
+          returnType: Bigdecimal
+        - name: max
+          returnType: Bigdecimal
+        - name: min
+          returnType: Bigdecimal
+        - name: stddev_pop
+          returnType: Bigdecimal!
+        - name: stddev_samp
+          returnType: Bigdecimal!
+        - name: sum
+          returnType: Bigdecimal
+        - name: var_pop
+          returnType: Bigdecimal!
+        - name: var_samp
+          returnType: Bigdecimal!
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: decimal
+          functionMapping:
+            avg:
+              name: avg
+            max:
+              name: max
+            min:
+              name: min
+            stddev_pop:
+              name: stddev_pop
+            stddev_samp:
+              name: stddev_samp
+            sum:
+              name: sum
+            var_pop:
+              name: var_pop
+            var_samp:
+              name: var_samp
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: DecimalAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: BigdecimalOrderByExp
+  operand:
+    scalar:
+      orderedType: Bigdecimal
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: BigdecimalOrderByExp
+
+---
+kind: ScalarType
+version: v1
+definition:
+  name: Timestamp
+  graphql:
+    typeName: Timestamp
+
+---
+kind: BooleanExpressionType
+version: v1
+definition:
+  name: TimestampWithoutTimeZoneBoolExp
+  operand:
+    scalar:
+      type: Timestamp
+      comparisonOperators:
+        - name: _eq
+          argumentType: Timestamp!
+        - name: _gt
+          argumentType: Timestamp!
+        - name: _gte
+          argumentType: Timestamp!
+        - name: _in
+          argumentType: "[Timestamp!]!"
+        - name: _lt
+          argumentType: Timestamp!
+        - name: _lte
+          argumentType: Timestamp!
+        - name: _neq
+          argumentType: Timestamp!
+      dataConnectorOperatorMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: timestamp_without_time_zone
+          operatorMapping: {}
+  logicalOperators:
+    enable: true
+  isNull:
+    enable: true
+  graphql:
+    typeName: TimestampWithoutTimeZoneBoolExp
+
+---
+kind: DataConnectorScalarRepresentation
+version: v1
+definition:
+  dataConnectorName: pg_aml
+  dataConnectorScalarType: timestamp_without_time_zone
+  representation: Timestamp
+  graphql:
+    comparisonExpressionTypeName: TimestampComparisonExp
+
+---
+kind: AggregateExpression
+version: v1
+definition:
+  name: TimestampWithoutTimeZoneAggExp
+  operand:
+    scalar:
+      aggregatedType: Timestamp
+      aggregationFunctions:
+        - name: max
+          returnType: Timestamp
+        - name: min
+          returnType: Timestamp
+      dataConnectorAggregationFunctionMapping:
+        - dataConnectorName: pg_aml
+          dataConnectorScalarType: timestamp_without_time_zone
+          functionMapping:
+            max:
+              name: max
+            min:
+              name: min
+  count:
+    enable: true
+  countDistinct:
+    enable: true
+  graphql:
+    selectTypeName: TimestampWithoutTimeZoneAggExp
+
+---
+kind: OrderByExpression
+version: v1
+definition:
+  name: TimestampOrderByExp
+  operand:
+    scalar:
+      orderedType: Timestamp
+      enableOrderByDirections:
+        enableAll: true
+  graphql:
+    expressionTypeName: TimestampOrderByExp
+
