@@ -20,6 +20,18 @@ definition:
       fromEnv: APP_PG_AML_READ_URL
     APP_PG_AML_WRITE_URL:
       fromEnv: APP_PG_AML_WRITE_URL
+    APP_SDN_API_AUTHORIZATION_HEADER:
+      fromEnv: APP_SDN_API_AUTHORIZATION_HEADER
+    APP_SDN_API_READ_URL:
+      fromEnv: APP_SDN_API_READ_URL
+    APP_SDN_API_WRITE_URL:
+      fromEnv: APP_SDN_API_WRITE_URL
+    APP_SDN_API_NDC_OAS_DOCUMENT_URI:
+      fromEnv: APP_SDN_API_NDC_OAS_DOCUMENT_URI
+    APP_SDN_API_NDC_OAS_BASE_URL:
+      fromEnv: APP_SDN_API_NDC_OAS_BASE_URL
+    APP_SDN_API_NDC_OAS_FILE_OVERWRITE:
+      fromEnv: APP_SDN_API_NDC_OAS_FILE_OVERWRITE
   connectors:
     - path: connector/pg_aml/connector.yaml
       connectorLinkName: pg_aml
@@ -29,3 +41,5 @@ definition:
       connectorLinkName: pg_aml
     - path: connector/mongo_aml/connector.yaml
       connectorLinkName: mongo_aml
+    - path: connector/sdn_api/connector.yaml
+      connectorLinkName: sdn_api

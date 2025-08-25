@@ -1,0 +1,167 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: sdn_api
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: APP_SDN_API_READ_URL
+      write:
+        valueFromEnv: APP_SDN_API_WRITE_URL
+  headers:
+    Authorization:
+      valueFromEnv: APP_SDN_API_AUTHORIZATION_HEADER
+  schema:
+    version: v0.1
+    schema:
+      collections: []
+      functions:
+        - arguments: {}
+          description: Healthz
+          name: getHealthzHealthzHealthzGet
+          result_type:
+            name: HealthzResponse
+            type: named
+        - arguments:
+            query:
+              type:
+                name: getGetsdnGetsdnGetsdnGet_query
+                type: named
+          description: Getsdn
+          name: getGetsdnGetsdnGetsdnGet
+          result_type:
+            name: SdnResponse
+            type: named
+      object_types:
+        HealthzResponse:
+          description: HealthzResponse
+          fields:
+            detail:
+              description: Detail
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            rows:
+              description: Rows
+              type:
+                type: nullable
+                underlying_type:
+                  name: Float
+                  type: named
+            source:
+              description: Source
+              type:
+                name: String
+                type: named
+            status:
+              description: Status
+              type:
+                name: String
+                type: named
+        SdnItem:
+          description: |-
+            SdnItem
+            SDN item mapped from CSV with headers:
+            "id","schema","name","aliases","birth_date","countries","addresses","identifiers","sanctions","phones","emails","dataset","first_seen","last_seen","last_change"
+          fields:
+            addresses:
+              description: Addresses
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            birth_date:
+              description: Birth Date
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            countries:
+              description: Countries
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            dataset:
+              description: Dataset
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            id:
+              description: Id
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            name:
+              description: Name
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+            sanctions:
+              description: Sanctions
+              type:
+                type: nullable
+                underlying_type:
+                  name: String
+                  type: named
+        SdnResponse:
+          description: SdnResponse
+          fields:
+            count:
+              description: Count
+              type:
+                name: Float
+                type: named
+            results:
+              description: Results
+              type:
+                element_type:
+                  name: SdnItem
+                  type: named
+                type: array
+        getGetsdnGetsdnGetsdnGet_query:
+          fields:
+            name:
+              description: Case-insensitive contains match on SDN name
+              type:
+                name: String
+                type: named
+      procedures: []
+      scalar_types:
+        Float:
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+          representation:
+            type: float64
+        JSON:
+          aggregate_functions: {}
+          comparison_operators: {}
+          representation:
+            type: json
+        String:
+          aggregate_functions: {}
+          comparison_operators:
+            _eq:
+              type: equal
+          representation:
+            type: string
+    capabilities:
+      capabilities:
+        mutation: {}
+        query:
+          nested_fields: {}
+          variables: {}
+      version: 0.1.6

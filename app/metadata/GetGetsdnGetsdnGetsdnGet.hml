@@ -1,0 +1,165 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: GetGetsdnGetsdnGetsdnGetQuery
+  fields:
+    - name: name
+      type: String!
+      description: Case-insensitive contains match on SDN name
+  graphql:
+    typeName: GetGetsdnGetsdnGetsdnGetQuery
+    inputTypeName: GetGetsdnGetsdnGetsdnGetQueryInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: sdn_api
+      dataConnectorObjectType: getGetsdnGetsdnGetsdnGet_query
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: GetGetsdnGetsdnGetsdnGetQuery
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - name
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: SdnItem
+  description: >-
+    SdnItem
+
+    SDN item mapped from CSV with headers:
+
+    "id","schema","name","aliases","birth_date","countries","addresses","identifiers","sanctions","phones","emails","dataset","first_seen","last_seen","last_change"
+  fields:
+    - name: addresses
+      type: String
+      description: Addresses
+    - name: birthDate
+      type: String
+      description: Birth Date
+    - name: countries
+      type: String
+      description: Countries
+    - name: dataset
+      type: String
+      description: Dataset
+    - name: id
+      type: String
+      description: Id
+    - name: name
+      type: String
+      description: Name
+    - name: sanctions
+      type: String
+      description: Sanctions
+  graphql:
+    typeName: SdnItem
+    inputTypeName: SdnItemInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: sdn_api
+      dataConnectorObjectType: SdnItem
+      fieldMapping:
+        addresses:
+          column:
+            name: addresses
+        birthDate:
+          column:
+            name: birth_date
+        countries:
+          column:
+            name: countries
+        dataset:
+          column:
+            name: dataset
+        id:
+          column:
+            name: id
+        name:
+          column:
+            name: name
+        sanctions:
+          column:
+            name: sanctions
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: SdnItem
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - addresses
+          - birthDate
+          - countries
+          - dataset
+          - id
+          - name
+          - sanctions
+
+---
+kind: ObjectType
+version: v1
+definition:
+  name: SdnResponse
+  description: SdnResponse
+  fields:
+    - name: count
+      type: Float!
+      description: Count
+    - name: results
+      type: "[SdnItem!]!"
+      description: Results
+  graphql:
+    typeName: SdnResponse
+    inputTypeName: SdnResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: sdn_api
+      dataConnectorObjectType: SdnResponse
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: SdnResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - count
+          - results
+
+---
+kind: Command
+version: v1
+definition:
+  name: GetGetsdnGetsdnGetsdnGet
+  outputType: SdnResponse!
+  arguments:
+    - name: query
+      type: GetGetsdnGetsdnGetsdnGetQuery!
+  source:
+    dataConnectorName: sdn_api
+    dataConnectorCommand:
+      function: getGetsdnGetsdnGetsdnGet
+  graphql:
+    rootFieldName: getGetsdnGetsdnGetsdnGet
+    rootFieldKind: Query
+  description: Getsdn
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: GetGetsdnGetsdnGetsdnGet
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,64 @@
+---
+kind: ObjectType
+version: v1
+definition:
+  name: HealthzResponse
+  description: HealthzResponse
+  fields:
+    - name: detail
+      type: String
+      description: Detail
+    - name: rows
+      type: Float
+      description: Rows
+    - name: source
+      type: String!
+      description: Source
+    - name: status
+      type: String!
+      description: Status
+  graphql:
+    typeName: HealthzResponse
+    inputTypeName: HealthzResponseInput
+  dataConnectorTypeMapping:
+    - dataConnectorName: sdn_api
+      dataConnectorObjectType: HealthzResponse
+
+---
+kind: TypePermissions
+version: v1
+definition:
+  typeName: HealthzResponse
+  permissions:
+    - role: admin
+      output:
+        allowedFields:
+          - detail
+          - rows
+          - source
+          - status
+
+---
+kind: Command
+version: v1
+definition:
+  name: GetHealthzHealthzHealthzGet
+  outputType: HealthzResponse!
+  source:
+    dataConnectorName: sdn_api
+    dataConnectorCommand:
+      function: getHealthzHealthzHealthzGet
+  graphql:
+    rootFieldName: getHealthzHealthzHealthzGet
+    rootFieldKind: Query
+  description: Healthz
+
+---
+kind: CommandPermissions
+version: v1
+definition:
+  commandName: GetHealthzHealthzHealthzGet
+  permissions:
+    - role: admin
+      allowExecution: true
+

@@ -1,0 +1,24 @@
+kind: Connector
+version: v2
+definition:
+  name: sdn_api
+  subgraph: app
+  source: hasura/openapi:v1.7.1
+  context: .
+  envMapping:
+    HASURA_CONNECTOR_PORT:
+      fromEnv: APP_SDN_API_HASURA_CONNECTOR_PORT_1
+    HASURA_SERVICE_TOKEN_SECRET:
+      fromEnv: APP_SDN_API_HASURA_SERVICE_TOKEN_SECRET_1
+    NDC_OAS_BASE_URL:
+      fromEnv: APP_SDN_API_NDC_OAS_BASE_URL_1
+    NDC_OAS_DOCUMENT_URI:
+      fromEnv: APP_SDN_API_NDC_OAS_DOCUMENT_URI
+    NDC_OAS_FILE_OVERWRITE:
+      fromEnv: APP_SDN_API_NDC_OAS_FILE_OVERWRITE_1
+    NDC_OAS_LAMBDA_PRETTY_LOGS:
+      fromEnv: APP_SDN_API_NDC_OAS_LAMBDA_PRETTY_LOGS_1
+    OTEL_EXPORTER_OTLP_ENDPOINT:
+      fromEnv: APP_SDN_API_OTEL_EXPORTER_OTLP_ENDPOINT_1
+    OTEL_SERVICE_NAME:
+      fromEnv: APP_SDN_API_OTEL_SERVICE_NAME_1

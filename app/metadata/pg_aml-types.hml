@@ -335,40 +335,6 @@ definition:
     typeName: Biginteger
 
 ---
-kind: BooleanExpressionType
-version: v1
-definition:
-  name: BigintBoolExp
-  operand:
-    scalar:
-      type: Biginteger
-      comparisonOperators:
-        - name: _eq
-          argumentType: Biginteger!
-        - name: _gt
-          argumentType: Biginteger!
-        - name: _gte
-          argumentType: Biginteger!
-        - name: _in
-          argumentType: "[Biginteger!]!"
-        - name: _lt
-          argumentType: Biginteger!
-        - name: _lte
-          argumentType: Biginteger!
-        - name: _neq
-          argumentType: Biginteger!
-      dataConnectorOperatorMapping:
-        - dataConnectorName: pg_aml
-          dataConnectorScalarType: bigint
-          operatorMapping: {}
-  logicalOperators:
-    enable: true
-  isNull:
-    enable: true
-  graphql:
-    typeName: BigintBoolExp
-
----
 kind: DataConnectorScalarRepresentation
 version: v1
 definition:

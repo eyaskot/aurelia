@@ -1,0 +1,52 @@
+packagingDefinition:
+  type: ManagedDockerBuild
+supportedEnvironmentVariables:
+  - name: NDC_OAS_DOCUMENT_URI
+    description: The URI of OAS Document. If not provided, the connector will look for `/etc/connector/swagger.json` by default
+  - name: NDC_OAS_BASE_URL
+    description: Base url of the API
+  - name: NDC_OAS_LAMBDA_PRETTY_LOGS
+    description: Print logs in a human readable format instead of JSON
+    defaultValue: "true"
+  - name: NDC_OAS_FILE_OVERWRITE
+    description: Overwrite previously generated functions.ts file and api.ts file
+    defaultValue: "false"
+commands:
+  update:
+    type: Dockerized
+    dockerImage: ghcr.io/hasura/ndc-open-api-lambda:v1.7.1
+    commandArgs:
+      - update
+cliPlugin:
+  type: Docker
+  dockerImage: ghcr.io/hasura/ndc-open-api-lambda:v1.7.1
+dockerComposeWatch:
+  - path: package.json
+    action: rebuild
+    target: /functions/package.json
+  - path: package-lock.json
+    action: rebuild
+    target: /functions/package-lock.json
+  - path: ./
+    action: sync+restart
+    target: /functions
+    exclude: swagger.json
+nativeToolchainDefinition:
+  commands:
+    start:
+      type: ShellScript
+      bash: ./start.sh
+      powershell: ./start.ps1
+    watch:
+      type: ShellScript
+      bash: ./watch.sh
+      powershell: ./watch.ps1
+    update:
+      type: ShellScript
+      bash: |
+        #!/usr/bin/env bash
+        set -eu -o pipefail
+        HASURA_CONFIGURATION_DIRECTORY="$HASURA_PLUGIN_CONNECTOR_CONTEXT_PATH" "$HASURA_DDN_NATIVE_CONNECTOR_PLUGIN_DIR/ndc-oas-lambda" update
+      powershell: |-
+        $ErrorActionPreference = "Stop"
+        & "$env:HASURA_DDN_NATIVE_CONNECTOR_PLUGIN_DIR\ndc-oas-lambda.bat" update

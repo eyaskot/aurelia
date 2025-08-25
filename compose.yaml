@@ -6,6 +6,7 @@ include:
   - path: app/connector/pg_aml/compose.yaml
   - path: app/connector/pg_aml/compose.yaml
   - path: app/connector/mongo_aml/compose.yaml
+  - path: app/connector/sdn_api/compose.yaml
 services:
   engine:
     build:
