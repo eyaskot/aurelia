@@ -18,40 +18,7 @@
 
 ## Dashboard chat (14 Days AML Exposure KPIs): https://promptql.console.hasura.io/share/3d4af231-5812-4dc2-ad9c-677da823b7af
 
-## Repository Layout
-.
-├─ app/
-│  ├─ metadata/
-│  │  ├─ PublicCustomers.hml
-│  │  ├─ PublicFinancialTransfers.hml
-│  │  ├─ PublicSars.hml
-│  │  ├─ Accounts.hml
-│  │  ├─ AmlCases.hml
-│  │  ├─ Sanctions.hml
-│  │  ├─ pg_aml.hml
-│  │  ├─ mongo_aml.hml
-│  │  ├─ sdn_api.hml
-│  │  ├─ pg_aml-types.hml
-│  │  ├─ mongo_aml-types.hml
-│  │  └─ relationships/
-│  │     └─ cross_source.hml
-├─ globals/
-│  └─ metadata/
-│     └─ promptql-config.hml
-├─ prompts/
-│  ├─ insight-1-layering-ring-finder.md
-│  └─ insight-2-pep-lifecycle-drift.md
-├─ sdn-api/
-│  ├─ app/main.py
-│  ├─ requirements.txt
-│  └─ deploy/Dockerfile
-├─ .env                
-├─ .env.cloud
-├─ README.md
-└─ Deliverables.md
-
 ## Notes
-- Secrets are scrubbed; endpoints remain for reproducibility.
 - SDN API resolves to: http://34.170.190.99:8000
 
 
