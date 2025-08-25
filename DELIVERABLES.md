@@ -16,7 +16,8 @@
 ## promptql-config.hml 
 - globals/metadata/promptql-config.hml link: https://github.com/eyaskot/aurelia/blob/main/globals/metadata/promptql-config.hml
 
-## Dashboard chat (14 Days AML Exposure KPIs): https://promptql.console.hasura.io/share/3d4af231-5812-4dc2-ad9c-677da823b7af
+## Dashboard chat 
+- Dashboard (14 Days AML Exposure KPIs): https://promptql.console.hasura.io/share/3d4af231-5812-4dc2-ad9c-677da823b7af
 
 ## Notes
 - SDN API resolves to: http://34.170.190.99:8000
